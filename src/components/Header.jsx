@@ -1,23 +1,42 @@
-import React, { useState } from "react";
-import MobileHeader from "./mobileHeader/MobileHeader";
+import HeaderLink from "./headerLink/HeaderLink";
+
 
 export const routes = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-  { name: "Events", href: "/events" },
-  { name: "Ministries", href: "/ministries" },
-  { name: "Sermons", href: "/sermons" },
-  { name: "Login", href: "/login" },
+  { name: "Agenda", href: "/" },
+
+  { name: "Libros", href: "/libros" },
+
+  { name: "Contabilidad", href: "/contabilidad" },
+
+  { name: "Salones", href: "/salones" },
+
 ];
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
+  //const [open, setOpen] = useState(false);
   return (
-    <header className="w-full overflow-hidden bg-slate-300">
-      <div className="max-w-[1300px] mx-auto p-4">
-        <MobileHeader open={open} setOpen={setOpen} />
+    <header className="w-full overflow-hidden bg-[#BD89F1] font-poppins">
+
+      <div className="max-w-[675px] mx-auto p-4">
+
+        <nav className= "hidden md:flex justify-between">
+
+          <div className="flex space-x-14">
+
+            {routes.map((route, idx) => (
+
+              <HeaderLink route={route} key={idx} />
+
+            ))}
+
+          </div>
+
+        </nav>
+
       </div>
+
     </header>
+
   );
+
 }
